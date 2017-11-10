@@ -22,6 +22,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Date;
 
+import static com.summer.developmodule.util.PhotoBitmapUtils.readPictureDegree;
+import static com.summer.developmodule.util.PhotoBitmapUtils.rotaingImageView;
+
 public class PicCameraLocalUtil {
     public static final String IMAGE_UNSPECIFIED = "image/*";
 
@@ -126,7 +129,7 @@ public class PicCameraLocalUtil {
     /**
      * 照相获取图片
      */
-    public static File selectPicFromCamera(Activity activity,File cameraFile) {
+    public static File selectPicFromCamera(Activity activity, File cameraFile) {
 
         if (!AppUtil.hasSDCard()) {
             ToastUtil.makeShortText(activity, "请检查存储设备");
@@ -139,8 +142,8 @@ public class PicCameraLocalUtil {
         }
         Uri contentUri = FileProvider7.getUriForFile(activity, cameraFile);
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if(intent.resolveActivity(activity.getPackageManager())!=null){
-            FileProvider7.grantPermissions2(activity,intent,contentUri);
+        if (intent.resolveActivity(activity.getPackageManager()) != null) {
+            FileProvider7.grantPermissions2(activity, intent, contentUri);
             intent.putExtra(MediaStore.EXTRA_OUTPUT, contentUri);
             activity.startActivityForResult(intent, Constant.REQUEST_CODE_CAMERA);
         }
@@ -162,14 +165,13 @@ public class PicCameraLocalUtil {
         }
         Uri contentUri = FileProvider7.getUriForFile(activity.getActivity(), cameraFile);
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if(intent.resolveActivity(activity.getActivity().getPackageManager())!=null){
-            FileProvider7.grantPermissions2(activity.getActivity(),intent,contentUri);
+        if (intent.resolveActivity(activity.getActivity().getPackageManager()) != null) {
+            FileProvider7.grantPermissions2(activity.getActivity(), intent, contentUri);
             intent.putExtra(MediaStore.EXTRA_OUTPUT, contentUri);
             activity.startActivityForResult(intent, Constant.REQUEST_CODE_CAMERA);
         }
         return cameraFile;
     }
-
 
 
     /**
@@ -188,7 +190,6 @@ public class PicCameraLocalUtil {
 
     /**
      * 系统页面来裁剪传进来的照片
-     *
      */
     public static void startPhotoZoom(Uri uri, Fragment fragment) {
         // 裁剪图片意图
@@ -215,6 +216,7 @@ public class PicCameraLocalUtil {
      */
     public static File revitionImageSize(String path, Context context)
             throws IOException {
+        int degree = readPictureDegree(path);
         BufferedInputStream in = new BufferedInputStream(new FileInputStream(new File(path)));
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
@@ -232,7 +234,7 @@ public class PicCameraLocalUtil {
             }
             i += 1;
         }
-        return saveBitmap(context, bitmap);
+        return saveBitmap(context, rotaingImageView(degree, bitmap));
     }
 
     /**
@@ -283,9 +285,6 @@ public class PicCameraLocalUtil {
         return new File(mFile.getAbsolutePath() + "/" + imgName);
 
     }
-
-
-
 
 
 }
