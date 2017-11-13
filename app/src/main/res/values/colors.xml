@@ -16,5 +16,6 @@
     <color name="listitem_subtitle_text">#74869C</color>
 
     <color name="dialog_hint">#4CD8DFE7</color>
+    <color name="title_bg">#019875</color>
 
 </resources>

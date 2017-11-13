@@ -1,0 +1,5 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="toolBarheight">65dp</dimen>
+    <dimen name="paddingtop">20dp</dimen>
+</resources>

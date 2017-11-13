@@ -6,7 +6,7 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.summer.developmodule"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -51,5 +51,6 @@ dependencies {
     // If you are using Kotlin, replace annotationProcessor with kapt.
     kapt 'com.jakewharton:butterknife-compiler:8.8.1'
     compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar'
+    compile 'com.blankj:utilcode:1.9.8'
 
 }

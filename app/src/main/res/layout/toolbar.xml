@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbarbg"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/title_bg"
+    android:paddingTop="@dimen/paddingtop">
+
+    <TextView
+        android:id="@+id/toolbar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="我的App"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/am_right_tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="?attr/actionBarItemBackground"
+            android:clickable="true"
+            android:gravity="right|center_vertical"
+            android:textColor="@android:color/black"
+            android:visibility="gone"
+            tools:text="fdafafd" />
+
+        <TextView
+            android:id="@+id/am_right_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:background="?attr/actionBarItemBackground"
+            android:clickable="true"
+            android:gravity="right|center_vertical"
+            android:minWidth="50dp"
+            android:paddingRight="15dp"
+            android:textColor="@android:color/black"
+            tools:text="fdafafd" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/am_left_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:background="?attr/actionBarItemBackground"
+        android:clickable="true"
+        android:gravity="left|center_vertical"
+        android:minWidth="50dp"
+        android:paddingLeft="15dp"
+        android:textColor="@android:color/black"
+        tools:text="edit" />
+</FrameLayout>
