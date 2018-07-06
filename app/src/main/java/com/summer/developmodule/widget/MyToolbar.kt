@@ -18,7 +18,6 @@ import android.text.TextUtils
 import android.view.View
 import com.blankj.utilcode.util.ConvertUtils
 import com.summer.developmodule.util.ResourceUtil
-import org.jetbrains.anko.find
 
 
 /**
@@ -135,11 +134,9 @@ class MyToolbar @JvmOverloads constructor(context: Context, attrs: AttributeSet?
     }
 
     fun setTitleBg(@ColorRes color: Int) {
-            view?.find<View>(R.id.toolbarbg)?.setBackgroundColor(ResourceUtil.getColor(context, color))
     }
 
     fun setTitleBgCopy(@DrawableRes drawable: Int) {
-            view?.find<View>(R.id.toolbarbg)?.setBackgroundResource(drawable)
     }
 
     //设置左边图片
